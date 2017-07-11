@@ -1,0 +1,45 @@
+<nav class="navbar navbar-light bg-faded">
+  <div class="container">
+    <a class="navbar-brand" href="#">IBM TEST</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div [style.margin-top.px]="10" class="row">
+    <div class="col-md-6">
+      <h3>Add new person</h3>
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" class="form-control" id="first_name" #first_name>
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" class="form-control" id="last_name" #last_name>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="address" class="form-control" id="address" #address>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" class="form-control" id="company" #company>
+        </div>
+        <br>
+        <button type="button" (click)="addNew(first_name.value, last_name.value, address.value, company.value)" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <div [style.margin-top.px]="10" class="row">
+        <h3>Results</h3>
+        <!-- Bootstrap Card -->
+        <div [style.margin-right.px]="10" class="row card card-block" *ngFor="let person of people">
+          <p>First Name: {{person.first_name}}</p>
+          <p>Last Name: {{person.last_name}}</p> 
+          <p>Address: {{person.address}}</p> 
+          <p>Company: {{person.company}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
