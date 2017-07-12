@@ -3,12 +3,12 @@ version: '2'
 # Define the services/containers to be run
 services:
   angular: 
-    build: angular-client 
+    build: angular 
     ports:
       - "4200:4200" 
 
   express: 
-    build: express-server 
+    build: node 
     ports:
       - "3000:3000"
     links:
