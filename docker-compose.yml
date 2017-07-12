@@ -1,0 +1,20 @@
+version: '2'
+
+# Define the services/containers to be run
+services:
+  angular: 
+    build: angular-client 
+    ports:
+      - "4200:4200" 
+
+  express: 
+    build: express-server 
+    ports:
+      - "3000:3000"
+    links:
+      - database # link this service to the database service
+
+  database: 
+    image: mongo 
+    ports:
+      - "27017:27017" 
